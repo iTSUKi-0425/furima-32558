@@ -24,6 +24,7 @@
 | Column         | Type       | Options                              |
 | -------------  | ---------- | ------------------------------------ |
 | name           | string     | null: false                          |
+| price          | integer    | null: false                          |
 | description    | text       | null: false                          |
 | condition_id   | integer    | null: false                          |
 | shipping_id    | integer    | null: false                          |
@@ -42,7 +43,7 @@
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | postcode         | string     | null: false                    |
-| model_id         | integer    | null: false                    |
+| area_id          | integer    | null: false                    |
 | address_city     | string     | null: false                    |
 | address_street   | string     | null: false                    |
 | address_building | string     |                                |
@@ -51,9 +52,6 @@
 
 
 ### Association
-
-- belongs_to :user
-- belongs_to :item
 - belongs_to :history
 
 ## histories テーブル
