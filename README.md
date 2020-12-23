@@ -21,21 +21,21 @@
 
 ## items テーブル
 
-| Column        | Type       | Options                              |
-| ------------- | ---------- | ------------------------------------ |
-| name          | string     | null: false                          |
-| description   | text       | null: false                          |
-| condition     | string     | null: false                          |
-| shipping      | string     | null: false                          |
-| area          | string     | null: false                          |  
-| preparation   | string     | null: false                          |
-| category      | string     | null: false                          |
-| user          | references | null: false, foreign_key: true       |
+| Column         | Type       | Options                              |
+| -------------  | ---------- | ------------------------------------ |
+| name           | string     | null: false                          |
+| description    | text       | null: false                          |
+| condition_id   | integer    | null: false                          |
+| shipping_id    | integer    | null: false                          |
+| area_id        | integer    | null: false                          |  
+| preparation_id | integer    | null: false                          |
+| category_id    | integer    | null: false                          |
+| user           | references | null: false, foreign_key: true       |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :history
+- has_one :history
 
 ## addresses テーブル
 
@@ -46,15 +46,15 @@
 | address_city     | string     | null: false                    |
 | address_street   | string     | null: false                    |
 | address_building | string     |                                |
-| phone_number     | integer    | null: false                    |
-| history          | references | null:false, foreign_key: true  |
+| phone_number     | string     | null: false                    |
+| history          | references | null: false, foreign_key: true |
 
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :histories
+- belongs_to :history
 
 ## histories テーブル
 
@@ -64,5 +64,7 @@
 | item   | references | null:false, foreign_key: true  |
 
 ### Association
-- belongs_to :address
+- has_one :address
+- belongs_to :user
+- belongs_to :item
 
