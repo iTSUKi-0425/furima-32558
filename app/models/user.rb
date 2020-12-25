@@ -20,7 +20,7 @@ class User < ApplicationRecord
         validates :first_name_kana 
       end
 
-        validates :password, length: { minimum: 6 , }, format: { with: /[a-z\d]{6,}/i }
+        validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]{6, }+\z/i }
 
         has_many :items
         has_many :histories
